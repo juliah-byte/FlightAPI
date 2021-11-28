@@ -23,14 +23,9 @@
         }
 
         h3 {
-            color: black;
+            color: #154360;
             padding-left: 630px;
             padding-top: 150px;
-        }
-
-        #home-list {
-            background-color: green;
-            padding: 150x;
         }
 
         .box {
@@ -46,29 +41,55 @@
             padding-left: 50px;
         }
 
-        .flightTable {
+        .table {
             margin-left: auto;
             margin-right: auto;
-            border: 2px solid black;
+            border: 1px solid black;
             border-collapse: collapse;
+            width: 50%;
+            background-color:  lightblue;
         }
 
         .col-heading {
             padding: 5px;
+            color: white;
         }
+
+        .col-heading1{
+            width: 15%;
+            color: white;
+        }
+
+        .scrollit {
+            overflow-y: scroll;
+        
+        }
+
+        .tableColor{
+            background-color:  #154360 ;
+        }
+
+        .add{
+            margin-left: 1040px;
+        }
+
+
+
     </style>
 
 </head>
 
 <body>
     <div class="cointainer-fluid">
-        <div id="home-list" class>
+        <div>
             <h3 class="text-lg-left">Scheduled Flights</h3>
-            <!--Showing Entries-->
+            <p>
+                <button type="button" class ="btn btn-primary add">Add Flight</button>  
+            </p>
             <form>
-                <div style="overflow-y: scroll;">
-                    <table class="flightTable" cellpadding="pixels" cellspacing="pixels">
-                        <thead>
+                <div class="scrollit">
+                    <table class="table">
+                        <thead class="tableColor">
                             <tr>
                                 <th class="col-heading">ID</th>
                                 <th class="col-heading">Airline</th>
@@ -76,48 +97,57 @@
                                 <th class="col-heading">Destination</th>
                                 <th class="col-heading">Departure</th>
                                 <th class="col-heading">Arrival</th>
-                                <th class="col-heading">Flight Number</th>
+                                <th class="col-heading" >Flight Number</th>
+                                <th class="col-heading1">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-heading">1</td>
-                                <td class="col-heading">Delta</td>
-                                <td class="col-heading">RDU</td>
-                                <td class="col-heading">ICT</td>
-                                <td class="col-heading">0520PM</td>
-                                <td class="col-heading">1115PM</td>
-                                <td class="col-heading">DL07818</td>
-                                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                                  </svg></td>
-                                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                  </svg></td>
-                            <tr>
-                                <td class="col-heading">1</td>
-                                <td class="col-heading">Delta</td>
-                                <td class="col-heading">RDU</td>
-                                <td class="col-heading">ICT</td>
-                                <td class="col-heading">0520PM</td>
-                                <td class="col-heading">1115PM</td>
-                                <td class="col-heading">DL07818</td>
-                                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                                  </svg></td>
-                                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                  </svg></td>
-                            </tr>
-                            </tr>
-                        </tbody>
+                        <div>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Delta</td>
+                                    <td>RDU</td>
+                                    <td>ICT</td>
+                                    <td>0520PM</td>
+                                    <td>1115PM</td>
+                                    <td>DL07818</td>
+                                    <td>
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                          </svg></button>
+                                          <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                          </svg></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </div>
                     </table>
                 </div>
             </form>
+        </div>
+    </div>
 </body>
+
 <script type="text/javascript">
+
+    document.getElementsByClassName("bi bi-trash").addEventListener('onClick', function (event){
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 201 ){
+
+            }
+        }
+        var urlstart = 'http://localhost:8080/flight.api/api/flight';
+        var urlmiddle = '?id='
+        var url = urlstart + urlmiddle + deleteFlightNumber_on_form;
+        console.log(url);
+        xhr.open('DELETE', url);
+        xhr.send();
+
+
+    });
 
     //Update Flight
     document.getElementById('update-flight-form').addEventListener('submit', function (event) {
