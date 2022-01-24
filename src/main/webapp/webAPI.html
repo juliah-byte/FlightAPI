@@ -87,8 +87,8 @@
                 <button  type="button" class ="btn btn-primary add">Add Flight</button>  
             </p>
             <form>
-                <div class="scrollit">
-                    <table class="table">
+                <div id="flight-list" class="scrollit">
+                    <table class="table" id="flightTable"> 
                         <thead class="tableColor">
                             <tr>
                                 <th class="col-heading">ID</th>
@@ -104,7 +104,7 @@
                         <div>
                             <tbody>
                                 <tr>
-                                    <td id = "serialNumber">1</td>
+                                    <td id = "serialNum">1</td>
                                     <td id = "airline">Delta</td>
                                     <td id = "fromAirport">RDU</td>
                                     <td id = "toAirport">ICT</td>
@@ -130,6 +130,82 @@
 </body>
 
 <script type="text/javascript">
+
+    //Read Flights
+    window.onload = function (response) {
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+
+            if (xhr.readyState === 4) {
+                var flightArray = JSON.parse(xhr.responseText);
+
+                flightArray.forEach(flight => {
+                    addFlightToTable(flight)
+                });
+
+            }
+        }
+
+        xhr.open('GET', 'http://localhost:8080/flight.api/api/flight');
+
+        xhr.send();
+    }
+
+            /**var serialNum = documentById("serialNumber").value;
+            var airlineNum = documentById("airline").value;
+            var ldeparture = documentById("fromAirport").value;
+            var larrival = documentById("toAirport").value;
+            var dtime = documentById("departure").value;
+            var atime = documentById("arrival").value;
+            var fNum = documentById("flightNumber").value;
+
+            flight = {serialNumber: serialNum, airline: airlineNum,
+            fromAirport: ldeparture, toAirport: larrival, departure: dtime,
+            arrival: atime, flightNumber: fNum}
+            updateTable(flight)
+            
+            document.getElementById("SerialNumber").value = null;
+            document.getElementById("airline").value = null;
+            document.getElementById("fromAirport").value = null;
+            document.getElementById("toAirport").value = null;
+            document.getElementById("departure").value = null;
+            document.getElementById("arrival").value = null;
+            document.getElementById("flightNumber").value = null;**/
+
+
+
+    function addFlightToTable(flight){
+
+        var row = document.createElement("tr");
+        var serialNumColumn = document.createElement("td");
+        var airlineColumn = document.createElement("td");
+        var fromAirportColumn= document.createElement("td");
+        var toAirportColumn = document.createElement("td");
+        var depatureColumn = document.createElement("td");
+        var arrivalColumn = document.createElement("td");
+        var flightNumberColumn = document.createElement("td");
+        serialNumColumn.innerText = flight.id;
+        airlineColumn.innerText = flight.airline;
+        fromAirportColumn.innerText = flight.fromAirport;
+        toAirportColumn.innerText = flight.toAirport;
+        depatureColumn.innerText = flight.departure;
+        arrivalColumn.innerText = flight.arrival;
+        flightNumberColumn.innerText = flight.flightNumber;
+        row.appendChild(serialNumColumn);
+        row.appendChild(airlineColumn);
+        row.appendChild(fromAirportColumn);
+        row.appendChild(toAirportColumn);
+        row.appendChild(depatureColumn);
+        row.appendChild(arrivalColumn);
+        row.appendChild(flightNumberColumn);
+        document.getElementById("flightTable").appendChild(row);
+    }
+
+
+
+
+
 
     document.getElementById("trashbucket").addEventListener('click', function (event){
         event.preventDefault();
@@ -157,13 +233,120 @@
 
 
     });
+    var flight = {};
+    document.addEventListener("DOMContentLoaded", function(){
+        // document.getElementById("new-flight").addEventListener("submit", function(e){
+        // e.preventDefault();
 
-    document.getElementById("editpencil").addEventListener('click', function(event){
+        let xhr = new XMLHttpRequest();
 
-        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 201 ){
+
+                flightArray.forEach(flight => {
+                     addFlightToTable(flight)
+                 })
+                //var data = JSON.parse(xhr.responseText);
+               // console.log(document.getElementById('flightNumber').value);
+               // console.log(data);
+
+               // var randomIndex = Math.floor(Math.random() * data.all.length);
+            }
+        }
+        var url = 'http://localhost:8080/flight.api/api/flight';
+        //var urlmiddle = '?id='
+        //var url = urlstart + urlmiddle + deleteFlightNumber_on_form;
+        console.log(url);
+        xhr.open('GET', url);
+        //xhr.withCredentials = true;
+        //xhr.setRequestHeader("Content_Type", "application/json");
+        //xhr.send({'request': "authentication token"});
+        xhr.send();
+
         
-
     });
+
+
+
+
+
+    // // Create Flight
+    // document.getElementById('add-flight-form').addEventListener('submit', function (event) {
+    //     event.preventDefault();
+    //     var airline_on_form = document.getElementById('airline').value;
+    //     var origin_on_form = document.getElementById('origin').value;
+    //     var destination_on_form = document.getElementById('destination').value;
+    //     var departure_on_form = document.getElementById('departure').value;
+    //     var arrival_on_form = document.getElementById('arrival').value;
+    //     var flightNumber_on_form = document.getElementById('flightNumber').value;
+    //     var flight = {
+    //         airline: airline_on_form,
+    //         fromAirport: origin_on_form,
+    //         toAirport: destination_on_form,
+    //         departure: departure_on_form,
+    //         arrival: arrival_on_form,
+    //         flightNumber: flightNumber_on_form
+    //     };
+    //     var xhr = new XMLHttpRequest();
+
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4 && xhr.status === 201) {
+
+    //         }
+    //     }
+
+    //     xhr.open('POST', 'http://localhost:8080/flight.api/api/flight');
+    //     xhr.send(JSON.stringify(flight));
+
+    // });
+
+    // //Read Flights
+    // window.onload = function (response) {
+    //     let xhr = new XMLHttpRequest();
+
+    //     xhr.onreadystatechange = function () {
+
+    //         if (xhr.readyState === 4) {
+    //             var flightArray = JSON.parse(xhr.responseText);
+
+    //             flightArray.forEach(flight => {
+    //                 addFlightToTable(flight)
+    //             });
+
+    //         }
+    //     }
+
+    //     xhr.open('GET', 'http://localhost:8080/flight.api/api/flight');
+
+    //     xhr.send();
+    // }
+
+    // function addFlightToTable(flight) {
+    //     var tr = document.createElement('tr');
+    //     var id = document.createElement('td');
+    //     var airline = document.createElement('td');
+    //     var fromAirport = document.createElement('td');
+    //     var toAirport = document.createElement('td');
+    //     var departure = document.createElement('td');
+    //     var arrival = document.createElement('td');
+    //     var flightNumber = document.createElement('td');
+    //     id.innerText = flight.id;
+    //     airline.innerText = flight.airline;
+    //     fromAirport.innerText = flight.fromAirport;
+    //     toAirport.innerText = flight.toAirport;
+    //     departure.innerText = flight.departure;
+    //     arrival.innerText = flight.arrival;
+    //     flightNumber.innerText = flight.flightNumber;
+    //     tr.appendChild(id);
+    //     tr.appendChild(airline);
+    //     tr.appendChild(fromAirport);
+    //     tr.appendChild(toAirport);
+    //     tr.appendChild(departure);
+    //     tr.appendChild(arrival);
+    //     tr.appendChild(flightNumber);
+    //     document.getElementById("flight-data").appendChild(tr);
+    // }
+
 
     // //Update Flight
     // document.getElementById('update-flight-form').addEventListener('submit', function (event) {
